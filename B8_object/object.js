@@ -32,32 +32,58 @@
  * 2. object contructor
  * 
  */
-function user(firstName, lastName, age)
+// function user(firstName, lastName, age)
+// {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.age = age;
+
+//     this.getName = function() {
+//         // return this.firstName + this.lastName;
+//         return `${this.firstName} ${this.lastName} `;
+//         // return "${this.firstName} ${this.lastName}";//false
+//     }
+// }
+
+// var person = function (firstName, lastName, age)
+// {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.age = age;
+// }
+
+// var client = new user('lan', 'pham', 18);
+// client.comment = 'xin chao';
+// console.log(client);
+// console.log(client.getName());
+
+// var admin = new user('linh', 'pham', 12);
+// admin.role = 'all';
+// console.log(admin);
+// console.log(admin.constructor === user);
+
+
+/**
+ * 3. prototype
+ * - nếu contructor được coi là khung ngôi nhà
+ * - thì prototype được coi là vật liệu xây nhà
+ */
+function User(firstName, lastName, age)
 {
     this.firstName = firstName;
     this.lastName = lastName;
     this.age = age;
-
     this.getName = function() {
-        // return this.firstName + this.lastName;
         return `${this.firstName} ${this.lastName} `;
-        // return "${this.firstName} ${this.lastName}";//false
     }
 }
 
-var person = function (firstName, lastName, age)
-{
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age = age;
-}
+User.className = 'f8';//false 
+User.prototype.className = 'f8';// phải thêm .prototype mới được định nghĩa
 
-var client = new user('lan', 'pham', 18);
-client.comment = 'xin chao';
-console.log(client);
-console.log(client.getName());
+var user1 = new User('lan', 'pham', 18);
+console.log(user1);
+console.log(user1.className);
+console.log(user1.getName());
 
-var admin = new user('linh', 'pham', 12);
-admin.role = 'all';
-console.log(admin);
-console.log(admin.constructor === user);
+
